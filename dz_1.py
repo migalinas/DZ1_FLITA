@@ -2,13 +2,6 @@ class Set:
     def __init__(s):
         s.d = set()
 
-    def input_set(s):
-        n = int(input("Enter the number of elements in the set: "))
-        print("Enter the elements of the set:")
-        for i in range(n):
-            el = input()
-            s.d.add(el)
-
     def print_set(s):
         print("Set: {", end="")
         for el in s.d:
@@ -33,37 +26,31 @@ class Set:
 
 
 if __name__ == '__main__':
-    s = Set()
     s1 = Set()
+    s2 = Set()
     while True:
         print("Select an option:")
-        print("1. Input set")
-        print("2. Print set")
-        print("3. Add element to set")
-        print("4. Remove element from set")
-        print("5. Input set1")
-        print("6. Print set1")
-        print("7. Add element to set1")
-        print("8. Remove element from set1")
-        print("9. Exit")
+        print("1. Print set1")
+        print("2. Add element to set1")
+        print("3. Remove element from set1")
+        print("4. Print set2")
+        print("5. Add element to set2")
+        print("6. Remove element from set2")
+        print("7. Exit")
         choice = int(input("Enter your choice: "))
-        if choice == 1:
-            s.input_set()
-        elif choice == 2:
-            s.print_set()
-        elif choice == 3:
-            s.add_element()
-        elif choice == 4:
-            s.remove_element()
-        elif choice == 5:
-            s1.input_set()
-        elif choice == 6:
+        elif choice == 1:
             s1.print_set()
-        elif choice == 7:
+        elif choice == 2:
             s1.add_element()
-        elif choice == 8:
+        elif choice == 3:
             s1.remove_element()
-        elif choice == 9:
+        elif choice == 4:
+            s2.print_set()
+        elif choice == 5:
+            s2.add_element()
+        elif choice == 6:
+            s2.remove_element()
+        elif choice == 7:
             break
         else:
             print("Invalid choice. Try again.")
