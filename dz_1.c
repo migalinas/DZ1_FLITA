@@ -27,7 +27,7 @@ void add_element(struct Set* s) {
         printf("Set is already full.\n");
         return;
     }
-    char* element = malloc(1000 * sizeof(char));
+    char* element = malloc(100 * sizeof(char));
     printf("Enter the element to be added: ");
     scanf("%s", element);
     for (int i = 0; i < s->num_elements; i++) {
