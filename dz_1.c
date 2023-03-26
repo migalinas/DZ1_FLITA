@@ -3,15 +3,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_ELEMENTS 1000
-
 struct Set {
-    char* elements[MAX_ELEMENTS];
+    char** elements;
     int num_elements;
+    int capacity;
 };
 
 void init_set(struct Set* s) {
     s->num_elements = 0;
+    s->capacity = 10; 
+    s->elements = malloc(s->capacity * sizeof(char*)); 
 }
 
 void print_set(struct Set* s) {
@@ -23,10 +24,6 @@ void print_set(struct Set* s) {
 }
 
 void add_element(struct Set* s) {
-    if (s->num_elements == MAX_ELEMENTS) {
-        printf("Set is already full.\n");
-        return;
-    }
     char* element = malloc(100 * sizeof(char));
     printf("Enter the element to be added: ");
     scanf("%s", element);
@@ -36,6 +33,10 @@ void add_element(struct Set* s) {
             free(element);
             return;
         }
+    }
+    if (s->num_elements == s->capacity) 
+        s->capacity *= 2;
+        s->elements = realloc(s->elements, s->capacity * sizeof(char));
     }
     s->elements[s->num_elements] = element;
     s->num_elements++;
